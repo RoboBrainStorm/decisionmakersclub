@@ -75,6 +75,7 @@ a:hover { text-decoration: underline; }
 
 /* Mobile menu controls — hidden on desktop */
 .nav-toggle { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.header-actions,
 .nav-burger,
 .nav-close,
 .nav-backdrop { display: none; }
@@ -279,6 +280,9 @@ a:hover { text-decoration: underline; }
      backdrop-filter (which would otherwise become their containing block) */
   .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
 
+  /* Apply + hamburger stay in the header bar */
+  .header-actions { display: flex; align-items: center; gap: 12px; }
+
   /* Hamburger button */
   .nav-burger {
     display: flex;
@@ -327,15 +331,8 @@ a:hover { text-decoration: underline; }
     border-bottom: 1px solid var(--line);
   }
   .nav a:hover { text-decoration: none; }
-  .nav .nav-cta {
-    text-align: center;
-    margin-top: 22px;
-    padding: 14px;
-    border: 1px solid var(--ink);
-    border-radius: 999px;
-    background: var(--ink);
-    color: var(--paper) !important;
-  }
+  /* Apply lives in the header on mobile, not in the panel */
+  .nav .nav-cta { display: none; }
 
   .nav-close {
     display: block;
@@ -362,9 +359,9 @@ a:hover { text-decoration: underline; }
   /* Open state */
   .nav-toggle:checked ~ .nav { transform: translateX(0); }
   .nav-toggle:checked ~ .nav-backdrop { opacity: 1; visibility: visible; }
-  .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
-  .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-toggle:checked ~ .header-actions .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .header-actions .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .header-actions .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .hero { padding: 72px 0 60px; }
   .section, .cta { padding: 60px 0; }

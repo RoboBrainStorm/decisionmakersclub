@@ -23,7 +23,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
     linkedin  = "https://www.linkedin.com/company/decisionmakersclub"
     instagram = "https://www.instagram.com/decisionmakersclub"
     facebook  = "https://www.facebook.com/decisionmakersclub"
-    x         = "https://x.com/decisionmakersclub"
+    x         = "https://x.com/DecisionMakersC"
 
   [[params.principles]]
     title = "Invite only, off the record"

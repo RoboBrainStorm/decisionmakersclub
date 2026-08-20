@@ -1,15 +1,15 @@
 {{ define "main" }}
-{{ $apply := or site.Params.sellApplyURL (printf "mailto:%s?subject=Sell to Enterprise — application" site.Params.email) }}
+{{ $luma := or site.Params.sellLumaURL site.Params.lumaURL }}
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">A Decision Makers Club initiative · Selling into enterprise</p>
+    <p class="eyebrow">A Decision Makers Club initiative · A series of events</p>
     <h1>Sell to Enterprise.</h1>
-    <p class="lede">For companies breaking into the enterprise and the Fortune 500 — procurement, champions, security reviews, long cycles. Learn from peers who've done it, and from the enterprise buyers already in the network.</p>
+    <p class="lede">A series of events for companies breaking into the enterprise and the Fortune 500 — procurement, champions, security reviews, long cycles. Learn from peers who've done it, and from the enterprise buyers already in the network.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="{{ $apply }}"{{ if site.Params.sellApplyURL }} target="_blank" rel="noopener"{{ end }}>Apply to join →</a>
+      <a class="btn-primary" href="{{ $luma }}" target="_blank" rel="noopener">See the events on Luma →</a>
     </div>
-    <p class="hero-note">Curated · The strongest members earn a seat at the Decision Makers Meetup</p>
+    <p class="hero-note">A live series on Luma · The strongest members earn a seat at the Decision Makers Meetup</p>
   </div>
 </section>
 
@@ -30,8 +30,8 @@
 <section class="cta">
   <div class="wrap">
     <h2>Break into the enterprise.</h2>
-    <p>If you're building a company that sells into large orgs, this is your room.</p>
-    <a class="cta-button" href="{{ $apply }}"{{ if site.Params.sellApplyURL }} target="_blank" rel="noopener"{{ end }}>Apply to join →</a>
+    <p>New sessions drop on Luma. Follow the series and grab a seat.</p>
+    <a class="cta-button" href="{{ $luma }}" target="_blank" rel="noopener">See the events on Luma →</a>
   </div>
 </section>
 

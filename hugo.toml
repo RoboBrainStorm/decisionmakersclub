@@ -14,9 +14,9 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 
   # The main community lives on Luma — home-page CTAs point here.
   lumaURL = "https://luma.com/decisionmakersclub"
-  # Sell to Enterprise is an initiative with its own page and apply link.
-  # Leave blank to fall back to a mailto: request.
-  sellApplyURL = ""
+  # Sell to Enterprise is a series of events, published on Luma.
+  # Set its Luma link here; leave blank to fall back to the main lumaURL.
+  sellLumaURL = ""
 
   # Social profiles — replace with the real handles. Leave a value blank to hide that icon.
   [params.social]

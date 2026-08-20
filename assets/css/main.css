@@ -63,7 +63,7 @@ a:hover { text-decoration: underline; }
 }
 .byline:hover { color: var(--ink); }
 .nav { display: flex; align-items: center; gap: 28px; font-size: 0.9rem; }
-.nav a { color: var(--ink-soft); }
+.nav a { color: var(--ink-soft); white-space: nowrap; }
 .nav a:hover { color: var(--ink); text-decoration: none; }
 .nav-cta {
   border: 1px solid var(--ink);
@@ -268,7 +268,7 @@ a:hover { text-decoration: underline; }
 .social a:hover { color: var(--ink); text-decoration: none; }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 680px) {
+@media (max-width: 767px) {
   .nav { gap: 16px; }
   .nav a:not(.nav-cta) { display: none; }
   .hero { padding: 72px 0 60px; }

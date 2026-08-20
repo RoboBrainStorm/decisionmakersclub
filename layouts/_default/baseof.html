@@ -21,17 +21,21 @@
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
       <div class="brand">
         <a class="wordmark" href="{{ "/" | relURL }}">Decision Makers Club</a>
         <a class="byline" href="https://robobrainstorm.com" target="_blank" rel="noopener">by Robobrainstorm</a>
       </div>
-      <nav class="nav">
+      <label class="nav-burger" for="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
+      <nav class="nav" aria-label="Primary">
+        <label class="nav-close" for="nav-toggle" aria-label="Close menu">&times;</label>
         <a href="{{ "/#meetup" | relURL }}">Meetup</a>
         <a href="{{ "/sell-to-enterprise/" | relURL }}">Sell to Enterprise</a>
         <a href="{{ "/#principles" | relURL }}">About</a>
         <a href="https://robobrainstorm.com" target="_blank" rel="noopener">Robobrainstorm</a>
         <a class="nav-cta" href="{{ site.Params.lumaURL }}" target="_blank" rel="noopener">Apply</a>
       </nav>
+      <label class="nav-backdrop" for="nav-toggle" aria-hidden="true"></label>
     </div>
   </header>
 
@@ -53,5 +57,15 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Close the mobile sidebar after tapping a link
+    document.querySelectorAll('.nav a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var t = document.getElementById('nav-toggle');
+        if (t) t.checked = false;
+      });
+    });
+  </script>
 </body>
 </html>

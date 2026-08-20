@@ -73,6 +73,12 @@ a:hover { text-decoration: underline; }
 }
 .nav-cta:hover { background: var(--ink); color: var(--paper) !important; }
 
+/* Mobile menu controls — hidden on desktop */
+.nav-toggle { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.nav-burger,
+.nav-close,
+.nav-backdrop { display: none; }
+
 /* ---------- Hero ---------- */
 .hero {
   padding: clamp(72px, 12vw, 132px) 0 clamp(64px, 10vw, 104px);
@@ -269,10 +275,101 @@ a:hover { text-decoration: underline; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 767px) {
-  .nav { gap: 16px; }
-  .nav a:not(.nav-cta) { display: none; }
+  /* fixed descendants must resolve to the viewport, so drop the header's
+     backdrop-filter (which would otherwise become their containing block) */
+  .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+  /* Hamburger button */
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    margin-right: -10px;
+    cursor: pointer;
+  }
+  .nav-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  /* Off-canvas panel */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 60;
+    height: 100dvh;
+    width: min(80vw, 320px);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 72px 24px 32px;
+    background: var(--paper);
+    border-left: 1px solid var(--line);
+    box-shadow: -12px 0 40px rgba(0, 0, 0, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+  }
+  .nav a {
+    white-space: normal;
+    padding: 15px 4px;
+    font-size: 1.05rem;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav a:hover { text-decoration: none; }
+  .nav .nav-cta {
+    text-align: center;
+    margin-top: 22px;
+    padding: 14px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--paper) !important;
+  }
+
+  .nav-close {
+    display: block;
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+
+  /* Open state */
+  .nav-toggle:checked ~ .nav { transform: translateX(0); }
+  .nav-toggle:checked ~ .nav-backdrop { opacity: 1; visibility: visible; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   .hero { padding: 72px 0 60px; }
   .section, .cta { padding: 60px 0; }
   .cards, .principles { grid-template-columns: 1fr; }
   .principles { gap: 28px; }
 }
+
+html:has(.nav-toggle:checked) { overflow: hidden; }

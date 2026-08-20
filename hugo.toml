@@ -1,0 +1,42 @@
+baseURL = "https://decisionmakersclub.com/"
+languageCode = "en-us"
+title = "Decision Makers Club"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  eyebrow = "Founders & CXOs · AI-driven decision making"
+  headline = "The community for founders and CXOs making AI-driven decisions."
+  # Used for the meta description / social share cards.
+  description = "A community of founders and CXOs to talk about AI-driven decision making — invite only, off the record."
+  lede = "An invite-only room where founders and CXOs talk about the decisions they actually made — the real wins, the real losses, and how AI shaped the call."
+  email = "hello@decisionmakersclub.com"
+
+  # The main community lives on Luma — home-page CTAs point here.
+  lumaURL = "https://luma.com/decisionmakersclub"
+  # Sell to Enterprise is an initiative with its own page and apply link.
+  # Leave blank to fall back to a mailto: request.
+  sellApplyURL = ""
+
+  # Social profiles — replace with the real handles. Leave a value blank to hide that icon.
+  [params.social]
+    linkedin  = "https://www.linkedin.com/company/decisionmakersclub"
+    instagram = "https://www.instagram.com/decisionmakersclub"
+    facebook  = "https://www.facebook.com/decisionmakersclub"
+    x         = "https://x.com/decisionmakersclub"
+
+  [[params.principles]]
+    title = "Invite only, off the record"
+    body = "We accept a selected few, and what's said in the room stays in the room. High-signal and candid — no recordings, no leaks."
+  [[params.principles]]
+    title = "Industry-specific sessions"
+    body = "Sessions are grouped by industry, so the decisions and context actually transfer to your world."
+  [[params.principles]]
+    title = "Volunteer-driven"
+    body = "Run by the members, for the members. No sponsors dictating the agenda."
+  [[params.principles]]
+    title = "Celebrating failures"
+    body = "We put the losses on the table, not just the wins. A bad call, told honestly, teaches the room more than any success story."
+
+[markup.goldmark.renderer]
+  unsafe = true

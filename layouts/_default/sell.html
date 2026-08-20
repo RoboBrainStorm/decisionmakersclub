@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ $apply := or site.Params.sellApplyURL (printf "mailto:%s?subject=Sell to Enterprise — application" site.Params.email) }}
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">A Decision Makers Club initiative · Selling into enterprise</p>
+    <h1>Sell to Enterprise.</h1>
+    <p class="lede">For companies breaking into the enterprise and the Fortune 500 — procurement, champions, security reviews, long cycles. Learn from peers who've done it, and from the enterprise buyers already in the network.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="{{ $apply }}"{{ if site.Params.sellApplyURL }} target="_blank" rel="noopener"{{ end }}>Apply to join →</a>
+    </div>
+    <p class="hero-note">Curated · The strongest members earn a seat at the Decision Makers Meetup</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">Who it's for</h2>
+    <p class="section-lead">Founders and CXOs of startups and scale-ups actively trying to win enterprise and Fortune 500 accounts — not selling to each other, but getting sharper at the one thing that's hard: landing the large, slow, high-stakes deal.</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <h2 class="section-title">The crossover</h2>
+    <p class="section-lead">Sell to Enterprise is an <strong>initiative of the Decision Makers Club</strong>, with one direction of access: the most curated, most credible members here earn an invitation to the <a href="{{ "/#meetup" | relURL }}">Decision Makers Meetup</a> — the room where enterprise buyers actually are. Access is earned, never sold.</p>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Break into the enterprise.</h2>
+    <p>If you're building a company that sells into large orgs, this is your room.</p>
+    <a class="cta-button" href="{{ $apply }}"{{ if site.Params.sellApplyURL }} target="_blank" rel="noopener"{{ end }}>Apply to join →</a>
+  </div>
+</section>
+
+{{ end }}

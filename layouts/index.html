@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">{{ site.Params.eyebrow }}</p>
+    <h1>{{ site.Params.headline }}</h1>
+    <p class="lede">{{ site.Params.lede }}</p>
+    <div id="join" class="hero-actions">
+      <a class="btn-primary" href="{{ site.Params.lumaURL }}" target="_blank" rel="noopener">Apply for an invite →</a>
+      <a class="btn-ghost" href="#meetup">About the meetup</a>
+    </div>
+    <p class="hero-note">Invite only · We accept a selected few · Monthly, in person</p>
+  </div>
+</section>
+
+<section id="meetup" class="section">
+  <div class="wrap">
+    <p class="section-eyebrow">The flagship</p>
+    <h2 class="section-title">The Decision Makers Meetup</h2>
+    <p class="section-lead">A monthly, invite-only gathering of founders and CXOs of large orgs, talking about the decisions they actually made — the real wins, the real losses, and how AI shaped the call. No theory, no vendor pitch-fest. Every session should surface something you can act on Monday.</p>
+    <ul class="meta-row">
+      <li>Invite only</li>
+      <li>Monthly</li>
+      <li>In person</li>
+      <li>Founders &amp; CXOs</li>
+    </ul>
+  </div>
+</section>
+
+<section id="principles" class="section section-alt">
+  <div class="wrap">
+    <h2 class="section-title">How we run</h2>
+    <div class="principles">
+      {{ range site.Params.principles }}
+      <div class="principle">
+        <h4>{{ .title }}</h4>
+        <p>{{ .body }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section id="sell" class="section">
+  <div class="wrap">
+    <div class="callout">
+      <div class="callout-body">
+        <p class="section-eyebrow">A club initiative</p>
+        <h2 class="section-title">Selling into the enterprise?</h2>
+        <p class="section-lead"><strong>Sell to Enterprise</strong> is an initiative of the club — for companies breaking into the enterprise and the Fortune 500. The most curated members earn a seat at the Decision Makers Meetup: in the room with the buyers.</p>
+        <a class="btn-primary" href="{{ "/sell-to-enterprise/" | relURL }}">Explore Sell to Enterprise →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>Own the call.</h2>
+    <p>If you're a founder or CXO making real decisions with AI, apply. We accept a selected few.</p>
+    <a class="cta-button" href="{{ site.Params.lumaURL }}" target="_blank" rel="noopener">Apply for an invite →</a>
+  </div>
+</section>
+
+{{ end }}
